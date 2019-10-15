@@ -25,4 +25,42 @@ AAAAB3Nza..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
 xyz adalah key yang saya samarkan ^_^
 
-### Sekian Pelajaran Pertaman Saya Di Github
+##  Apabila tidak muncul baris seperti diatas?
+
+Anda harus generate key baru, caranya:
+
+```
+ssh-keygen -t rsa -b 4096 -C "email_anda@contoh.com"
+```
+
+Kemudian muncul pertanyaan, anda enter-enter saja untuk set secara default.
+
+##  Apabila muncul baris seperti diatas?
+Anda harus menambahkan key tsb ke SSH-Agent, cara nya:
+
+```
+eval $(ssh-agent -s)
+--> akan muncul: Agent pid xxxxx
+```
+
+Tambahkan key ke ssh-agent:
+```
+ssh-add -K ~/.ssh/id_rsa
+```
+
+Kemudian tambahkan SSH key ke account Github anda.
+Sebelumnya copy dulu key anda ke clipboard, dengan cara:
+
+```
+pbcopy < ~/.ssh/id_rsa.pub
+```
+Anda login ke account github.com, dengan langkah:
+
+Ke profile anda.
+Klik Setting.
+Klik ssh key.
+Beri nama pada form.
+Paste key ke dalam kotak yang disediakan.
+Pelajari Git lebih lanjut:
+
+https://git-scm.com/book/id/v1/Memulai-Git-Dasar-Git
